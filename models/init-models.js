@@ -1,32 +1,32 @@
 var DataTypes = require("sequelize").DataTypes;
-var _DetalleVenta = require("./DetalleVenta");
-var _Ventas = require("./Ventas");
 var _clientes = require("./clientes");
+var _detalleventa = require("./detalleventa");
 var _productos = require("./productos");
 var _sabores = require("./sabores");
+var _ventas = require("./ventas");
 
 function initModels(sequelize) {
-  var DetalleVenta = _DetalleVenta(sequelize, DataTypes);
-  var Ventas = _Ventas(sequelize, DataTypes);
   var clientes = _clientes(sequelize, DataTypes);
+  var detalleventa = _detalleventa(sequelize, DataTypes);
   var productos = _productos(sequelize, DataTypes);
   var sabores = _sabores(sequelize, DataTypes);
+  var ventas = _ventas(sequelize, DataTypes);
 
-  Ventas.belongsTo(Clientes, { as: "id_cliente_Cliente", foreignKey: "id_cliente"});
-  Clientes.hasMany(Ventas, { as: "Venta", foreignKey: "id_cliente"});
-  DetalleVenta.belongsTo(Productos, { as: "id_producto_Producto", foreignKey: "id_producto"});
-  Productos.hasMany(DetalleVenta, { as: "DetalleVenta", foreignKey: "id_producto"});
-  productos.belongsTo(Sabores, { as: "id_sabor_Sabore", foreignKey: "id_sabor"});
-  Sabores.hasMany(productos, { as: "productos", foreignKey: "id_sabor"});
-  DetalleVenta.belongsTo(Ventas, { as: "id_venta_Venta", foreignKey: "id_venta"});
-  Ventas.hasMany(DetalleVenta, { as: "DetalleVenta", foreignKey: "id_venta"});
+  ventas.belongsTo(clientes, { as: "id_cliente_cliente", foreignKey: "id_cliente"});
+  clientes.hasMany(ventas, { as: "venta", foreignKey: "id_cliente"});
+  detalleventa.belongsTo(productos, { as: "id_producto_producto", foreignKey: "id_producto"});
+  productos.hasMany(detalleventa, { as: "detalleventa", foreignKey: "id_producto"});
+  productos.belongsTo(sabores, { as: "id_sabor_sabore", foreignKey: "id_sabor"});
+  sabores.hasMany(productos, { as: "productos", foreignKey: "id_sabor"});
+  detalleventa.belongsTo(ventas, { as: "id_venta_venta", foreignKey: "id_venta"});
+  ventas.hasMany(detalleventa, { as: "detalleventa", foreignKey: "id_venta"});
 
   return {
-    DetalleVenta,
-    Ventas,
     clientes,
+    detalleventa,
     productos,
     sabores,
+    ventas,
   };
 }
 module.exports = initModels;

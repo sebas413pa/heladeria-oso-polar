@@ -19,14 +19,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Sabores',
+        model: 'sabores',
         key: 'id_sabor'
       }
     }
   }, {
     sequelize,
     tableName: 'productos',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",
