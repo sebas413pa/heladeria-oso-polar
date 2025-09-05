@@ -21,6 +21,9 @@ router.get('/health', (req, res) => {
 router.get('/status', (req, res) => {
   res.json({ status: 'API is running', uptime: process.uptime() });
 });
+
+
+
 // fin
 // mas lineas
 // completarnndo las 20 
@@ -28,4 +31,11 @@ router.get('/status', (req, res) => {
 // 
 // Lineas 
 
-module.exports = router;
+//Se importan los controllers
+//Ej: const productosController = require('../controllers/productosController')
+module.exports = (app) => {
+  //rutas
+
+  //Ej: // router.get('/verAutomoviles', automovilesController.list)
+  app.use('/', router)
+};
