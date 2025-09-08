@@ -14,6 +14,11 @@ module.exports = function(sequelize, DataTypes) {
     descripcion: {
       type: DataTypes.STRING(100),
       allowNull: true
+    },
+    estado: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 1
     }
   }, {
     sequelize,

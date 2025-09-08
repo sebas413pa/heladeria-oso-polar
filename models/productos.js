@@ -15,6 +15,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL(5,2),
       allowNull: false
     },
+    estado: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 1
+    },
     id_sabor: {
       type: DataTypes.INTEGER,
       allowNull: true,

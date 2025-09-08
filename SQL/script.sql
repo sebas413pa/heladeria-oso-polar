@@ -5,6 +5,7 @@ CREATE TABLE sabores (
     id_sabor INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(100),
+    estado TINYINT(1) NOT NULL DEFAULT 1,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -13,6 +14,7 @@ CREATE TABLE productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     precio DECIMAL(5,2) NOT NULL,
+    estado TINYINT(1) NOT NULL DEFAULT 1,
     id_sabor INT,
     FOREIGN KEY (id_sabor) REFERENCES sabores(id_sabor),
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -25,6 +27,7 @@ CREATE TABLE clientes (
     telefono VARCHAR(15),
     correo VARCHAR(50),
     nit VARCHAR(50),
+    estado TINYINT(1) NOT NULL DEFAULT 1,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -34,6 +37,7 @@ CREATE TABLE ventas (
     id_cliente INT,
     fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
     total DECIMAL(6,2),
+    estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -45,6 +49,7 @@ CREATE TABLE detalleventa (
     id_producto INT,
     cantidad INT NOT NULL,
     subtotal DECIMAL(6,2),
+    estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
     FOREIGN KEY (id_producto) REFERENCES productos(id_producto),
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,

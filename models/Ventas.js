@@ -23,6 +23,11 @@ module.exports = function(sequelize, DataTypes) {
     total: {
       type: DataTypes.DECIMAL(6,2),
       allowNull: true
+    },
+    estado: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 1
     }
   }, {
     sequelize,

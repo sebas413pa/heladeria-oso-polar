@@ -22,6 +22,11 @@ module.exports = function(sequelize, DataTypes) {
     nit: {
       type: DataTypes.STRING(50),
       allowNull: true
+    },
+    estado: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 1
     }
   }, {
     sequelize,
