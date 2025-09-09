@@ -3,9 +3,11 @@ const router = express.Router();
 
 const saboresRoutes = require('./saboresRoutes');
 const ventasRoutes = require('./ventasRoutes');
+const productosRoutes = require('./productosRoutes');
 
 router.use('/sabores', saboresRoutes);
 router.use('/ventas', ventasRoutes);
+router.use('/productos', productosRoutes);
 
 
 
