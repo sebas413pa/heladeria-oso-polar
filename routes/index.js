@@ -3,10 +3,11 @@ const router = express.Router();
 
 const saboresRoutes = require('./saboresRoutes');
 const ventasRoutes = require('./ventasRoutes');
+const clientesRoutes = require('./clientesRoutes');
 
 router.use('/sabores', saboresRoutes);
 router.use('/ventas', ventasRoutes);
-
+router.use('/clientes', clientesRoutes);
 
 
 router.get('/', (req, res) => {
