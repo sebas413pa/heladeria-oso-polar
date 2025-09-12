@@ -10,6 +10,7 @@ router.use('/ventas', ventasRoutes);
 router.use('/productos', productosRoutes);
 
 
+
 router.get('/', (req, res) => {
   res.send('API CORRIENDO');
 });
